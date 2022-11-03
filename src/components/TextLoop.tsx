@@ -72,6 +72,8 @@ class TextLoop extends React.PureComponent<Props, State> {
         const { delay } = this.props;
         const { currentInterval, elements } = this.state;
 
+        this.isUnMounting = false;
+
         if (currentInterval > 0 && elements.length > 1) {
             this.tickDelay = requestTimeout(() => {
                 this.tickLoop = requestTimeout(this.tick, currentInterval);
